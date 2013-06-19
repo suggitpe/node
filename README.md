@@ -1,3 +1,3 @@
 # Sandbox for node.js
 
-This is just for sanbox node work.
+This is just for sandbox node work.
