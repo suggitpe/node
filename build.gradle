@@ -1,0 +1,18 @@
+buildscript {
+    repositories { maven { url 'http://jcenter.bintray.com' }}
+    dependencies { classpath 'com.github.goldin.plugins.gradle:node:0.3' }
+}
+
+allprojects {
+    defaultTasks 'clean', 'build'
+
+}
+
+subprojects { subprojects ->
+	buildDir = 'target'
+    version = '1.0-SNAPSHOT'
+    group = 'org.suggs.js.node'
+
+
+
+}
