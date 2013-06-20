@@ -2,19 +2,21 @@
 
 var fs = require('fs')
 
-var writeFileTo = function writeFileToDisk(place, content){
-	fs.writeFileSync(place(), content())
-	console.log('written file');
-}
+var MODULE = (function(){
 
-var output = function toTheOutputFile(){
-	return "foo.txt"
-}
+	var writeFileTo = function writeFileToDisk(place, content){
+		fs.writeFileSync(place(), content())
+		console.log('written file');
+	}
 
-var data = function withDataOf(){
-	return "A startup is a business built to grow rapidly\n"
-}
+	var output = function toTheOutputFile(){
+		return "foo.txt"
+	}
+
+	var data = function withDataOf(){
+		return "A startup is a business built to grow rapidly\n"
+	}
+	
+}())
 
 writeFileTo(output, data)
-
-
