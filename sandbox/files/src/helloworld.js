@@ -2,13 +2,19 @@
 
 var fs = require('fs')
 
-function toTheOutputFile(){
+var writeFileTo = function writeFileToDisk(place, content){
+	fs.writeFileSync(place(), content())
+	console.log('written file');
+}
+
+var output = function toTheOutputFile(){
 	return "foo.txt"
 }
 
-function withDataOf(){
+var data = function withDataOf(){
 	return "A startup is a business built to grow rapidly\n"
 }
 
-fs.writeFileSync(toTheOutputFile(), withDataOf())
-console.log("written the file")
+writeFileTo(output, data)
+
+
