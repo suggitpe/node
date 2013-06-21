@@ -1,19 +1,24 @@
 var http = require('http')
+var url = require('url')
 
-function start(){
-	
-	function onRequest(request, response) {
-		console.log("request received")
-		response.writeHead(200, {"Content-Type": "text/plain"})
-		response.write("Hello World!")
-		response.end()
-	}
+function start(route) {
 
-	console.log("Starting http server")
+    function onRequest(request, response) {
+        var pathname = url.parse(request.url).pathname
+        console.log("request received  for " + pathname)
 
-	http.createServer(onRequest).listen(8989)
+        route(pathname)
 
-	console.log("HTTP server now running")
+        response.writeHead(200, {"Content-Type": "text/plain"})
+        response.write("Hello World!")
+        response.end()
+    }
+
+    console.log("Starting http server")
+
+    http.createServer(onRequest).listen(8989)
+
+    console.log("HTTP server now running")
 }
 
 exports.start = start

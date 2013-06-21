@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-function calculatePrimeNumbersTo(){
-}
+var primes = require('./primeNumberCalculator')
 
-calculatePrimeNumbersTo(100)
+console.log(primes.calculatePrimeNumbersTo(100))
