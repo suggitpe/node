@@ -8,7 +8,7 @@ function calculatePrimeNumbersTo(maxNumber) {
     function addToCollectionIfPrime(aPotentialPrimeNumber, aCollectionOfPrimeNumbers) {
 
         for (var indexOfPrimeNumber in aCollectionOfPrimeNumbers) {
-            if (aPotentialPrimeNumber % aCollectionOfPrimeNumbers[indexOfPrimeNumber] == 0) {
+            if (aPotentialPrimeNumber % aCollectionOfPrimeNumbers[indexOfPrimeNumber] === 0) {
                 return aCollectionOfPrimeNumbers
             }
         }
@@ -16,7 +16,7 @@ function calculatePrimeNumbersTo(maxNumber) {
     }
 
     function calculatePrimeNumbersFromTo(lowerNumber, maxNumber, primeNumbers) {
-        if (lowerNumber == maxNumber) {
+        if (primeNumbers.length === maxNumber) {
             return primeNumbers
         }
         return calculatePrimeNumbersFromTo(lowerNumber + 1, maxNumber, addToCollectionIfPrime(lowerNumber, primeNumbers))
