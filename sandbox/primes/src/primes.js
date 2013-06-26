@@ -2,4 +2,4 @@
 
 var primes = require('./primeNumberCalculator')
 
-console.log(primes.calculatePrimeNumbersTo(100))
+console.log(primes.calculatePrimeNumbersTo(10))
