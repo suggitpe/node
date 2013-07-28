@@ -3,6 +3,11 @@ buildscript {
     dependencies { classpath 'com.github.goldin.plugins.gradle:node:0.3' }
 }
 
+task wrapper(type: Wrapper){
+    description = "Generates gradlew scripts for NIX and win envs"
+    gradleVersion = '1.6'
+}
+
 allprojects {
     defaultTasks 'clean', 'build'
 
