@@ -1,3 +1,5 @@
 #!/usr/bin/env node
-var mr = require('./marketresearch.js')
-mr.marketResearch(["FB", "ORCL"])
+
+var marketResearch = require('./market-research.js')
+
+marketResearch.marketResearch(["FB", "ORCL"])
