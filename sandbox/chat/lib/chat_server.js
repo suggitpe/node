@@ -25,7 +25,7 @@ function joinRoom(socket, room) {
     });
 
     var usersInRoom = io.sockets.clients(room);
-    if (usersInRoom > 1) {
+    if (usersInRoom.length > 1) {
         var usersInRoomSummary = 'Users currently in ' + room + ': ';
         for (var index in usersInRoom) {
             var userSocketId = usersInRoom[index].id;
@@ -46,7 +46,7 @@ function handleNameChangeAttempts(socket, nickNames, namesUsed) {
         if (name.indexOf('Guest') == 0) {
             socket.emit('nameResult', {
                 success: false,
-                message: 'Names cannoy begin with "Guest".'
+                message: 'Names cannot begin with "Guest".'
             });
         } else {
             if (namesUsed.indexOf(name) == -1) {
@@ -95,6 +95,7 @@ function handleClientDisconnection(socket, nickNames, namesUsed) {
 
 exports.listen = function (server) {
     io = socketio.listen(server);
+    io.set('log level', 1);
 
     io.sockets.on('connection', function (socket) {
         guestNumber = assignGuestName(socket, guestNumber, nickNames, namesUsed);

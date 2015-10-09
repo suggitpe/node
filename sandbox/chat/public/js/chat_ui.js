@@ -9,6 +9,7 @@ function divSystemContentElement(message) {
 function processUserInput(chatApp, socket) {
     var message = $('#send-message').val();
     var systemMessage;
+
     if (message.charAt(0) == '/') {
         systemMessage = chatApp.processCommand(message);
         if (systemMessage) {
@@ -60,7 +61,6 @@ $(document).ready(function () {
             chatApp.processCommand('/join ' + $(this).text());
             $('#send-message').focus();
         }, 1000);
-
     });
 
     setInterval(function(){
@@ -73,9 +73,6 @@ $(document).ready(function () {
         processUserInput(chatApp, socket);
         return false;
     });
-
-
-
 
 });
 
