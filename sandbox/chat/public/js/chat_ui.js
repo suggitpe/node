@@ -27,6 +27,7 @@ var socket = io.connect();
 
 $(document).ready(function () {
     var chatApp = new Chat(socket);
+
     socket.on('nameResult', function (result) {
         var message;
         if (result.success) {
@@ -50,6 +51,7 @@ $(document).ready(function () {
 
     socket.on('rooms', function(rooms){
         $('#room-list').empty();
+
         for(var room in rooms){
             room = room.substring(1, room.length);
             if(room != ''){
@@ -60,7 +62,7 @@ $(document).ready(function () {
         $('#room-list div').click(function(){
             chatApp.processCommand('/join ' + $(this).text());
             $('#send-message').focus();
-        }, 1000);
+        });
     });
 
     setInterval(function(){
